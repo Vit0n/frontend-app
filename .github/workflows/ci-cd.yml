@@ -33,11 +33,9 @@ jobs:
 
       - name: Upload to S3
         uses: jakejarvis/s3-sync-action@master
-#        with:
-#          args: --acl public-read
         env:
           SOURCE_DIR: dist/
-          AWS_REGION: ${{ secrets.REGION }}
-          AWS_S3_BUCKET: ${{ secrets.FRONTEND_APP_BUCKET }}
-          AWS_ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.SECRET_ACCESS_KEY }}
+          AWS_REGION: ${{ secrets.AWS_REGION }}
+          AWS_S3_BUCKET: ${{ secrets.AWS_BUCKET_NAME }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
