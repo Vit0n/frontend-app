@@ -1,0 +1,43 @@
+
+name: Node.js CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install Node.js 18.18.0
+        uses: actions/setup-node@v2
+        with:
+          node-version: 18.18.0
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build App
+        run: pnpm build
+
+      - name: Upload to S3
+        uses: jakejarvis/s3-sync-action@master
+#        with:
+#          args: --acl public-read
+        env:
+          SOURCE_DIR: dist/
+          AWS_REGION: ${{ secrets.REGION }}
+          AWS_S3_BUCKET: ${{ secrets.FRONTEND_APP_BUCKET }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.SECRET_ACCESS_KEY }}
