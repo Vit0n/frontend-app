@@ -22,6 +22,9 @@ function App() {
                     count is {count}
                 </button>
             </div>
+            <div className="card">
+                <h6>Some changes!!!</h6>
+            </div>
         </>
     )
 }
