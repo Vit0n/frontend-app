@@ -16,15 +16,20 @@ const MyNavLink = (props: { to: string, children: React.ReactNode }) => {
     )
 };
 
+const pages = [
+    { path: '/', name: 'Home' },
+    { path: '/contacts', name: 'Contacts' },
+    { path: '/about', name: 'About' }
+];
+
 export const Navigation = () => {
     return (
         <ul className="nav-list">
-            <li className="nav-link-item">
-                <MyNavLink to="/">Home</MyNavLink>
-            </li>
-            <li className="nav-link-item">
-                <MyNavLink to="/contacts">Contacts</MyNavLink>
-            </li>
+            {pages.map((page, index) => (
+                <li key={index}>
+                    <MyNavLink to={page.path}>{page.name}</MyNavLink>
+                </li>
+            ))}
         </ul>
     )
 };
