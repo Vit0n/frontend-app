@@ -1,18 +1,10 @@
-import { useState } from 'react'
+import { RouterProvider } from 'react-router-dom';
+import { router } from './router.tsx';
+import './styles.css';
 
 function App() {
-    const [count, setCount] = useState<number>(0);
-
     return (
-        <>
-            <h1>Viton Space</h1>
-
-            <div className="card">
-                <button onClick={() => setCount((count) => count + 1)}>
-                    count is {count}
-                </button>
-            </div>
-        </>
+        <RouterProvider router={router}/>
     )
 }
 

@@ -1,4 +1,5 @@
-name: Node.js CI
+# Deploy to AWS S3 and Invalidate CloudFront
+name: Frontend APP - CI/CD
 
 on:
   push:
