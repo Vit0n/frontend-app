@@ -5,8 +5,6 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
         <div>
             <Navigation />
 
-            <h1>Viton Space</h1>
-
             {children}
         </div>
     )
