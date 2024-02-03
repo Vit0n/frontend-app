@@ -19,7 +19,7 @@ const MyNavLink = (props: { to: string, children: React.ReactNode }) => {
 const pages = [
     { path: '/', name: 'Home' },
     { path: '/contacts', name: 'Contacts' },
-    { path: '/about', name: 'About' }
+    // { path: '/about', name: 'About' }
 ];
 
 export const Navigation = () => {
