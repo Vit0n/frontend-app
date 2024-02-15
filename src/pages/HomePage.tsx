@@ -5,7 +5,6 @@ export const HomePage = () => {
     return (
         <Layout>
             <CounterButton />
-            <CounterButton />
         </Layout>
     )
 };
